@@ -1,4 +1,5 @@
 // const path = require('path');
+const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
@@ -10,9 +11,11 @@ module.exports = {
     },
     watch: NODE_ENV === 'development',
     devServer: {
+        // host: 'localhost',
+        hot: true,
         inline: true,
-        // hot: true,
-        contentBase: __dirname + '/public',
+        port: 3000,
+        contentBase: './public',
         historyApiFallback: true
     },
     module: {
@@ -25,24 +28,26 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['@babel/preset-env'],
+                            presets: ['env', 'react', 'stage-0'],
                             plugins: ['transform-decorators-legacy']
                         }
                     }
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' }
+                ]
             }
         ]
     },
-    devtool: 'eval-source-map',
+    // plugins: [
+    //     new webpack.HotModuleReplacementPlugin()
+    // ],
+    devtool: 'inline-source-map',
     resolve: {
         extensions: ['.js', '.jsx', '.json', '*']
-        // alias: {
-        //     framework: path.resolve('./src/framework'),
-        //     constants: path.resolve('./src/constants'),
-        //     components: path.resolve('./src/components'),
-        //     modules: path.resolve('./src/modules'),
-        //     reducers: path.resolve('./src/reducers'),
-        //     actions: path.resolve('./src/actions')
-        // }
     }
 };
