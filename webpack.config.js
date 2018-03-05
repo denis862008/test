@@ -1,9 +1,9 @@
-// const path = require('path');
+const path = require('path');
 const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-    entry: './src/index.js',
+    entry: ['babel-polyfill', 'react-hot-loader/patch', './src/index.js'],
     output: {
         path: __dirname + '/public',
         publicPath: '/',
@@ -43,11 +43,17 @@ module.exports = {
             }
         ]
     },
-    // plugins: [
-    //     new webpack.HotModuleReplacementPlugin()
-    // ],
-    devtool: 'inline-source-map',
+    plugins: [
+        new webpack.NamedModulesPlugin()
+        // new webpack.HotModuleReplacementPlugin()
+    ],
+    devtool: 'inline-cheap-module-source-map',
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '*']
+        extensions: ['.js', '.jsx', '.json', '*'],
+        alias: {
+            actions: path.resolve(__dirname, 'src/actions/'),
+            reducers: path.resolve(__dirname, 'src/reducers/'),
+            utils: path.resolve(__dirname, 'src/utils/')
+        }
     }
 };

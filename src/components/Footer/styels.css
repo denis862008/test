@@ -1,0 +1,14 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    padding: 16px;
+    background-color: #f8f7f6;
+}
+
+.footer__filter-link {
+    display: inline-block;
+    margin-right: 16px;
+}
