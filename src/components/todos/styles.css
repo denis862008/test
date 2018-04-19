@@ -1,0 +1,17 @@
+.todos-list {
+    padding: 8px 16px;
+    margin-top: 20px;
+}
+.todos-list__item {
+    display: inline-block;
+    padding: 4px 16px;
+    margin-left: 10px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: #efefe6;
+    color: #787878;
+    cursor: pointer;
+}
+.todos-list__item:first-child {margin-left: 0;}

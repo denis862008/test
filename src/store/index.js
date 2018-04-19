@@ -3,7 +3,10 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 const configStore = (initialState) => {
-    const store = compose(applyMiddleware(thunk)(createStore)(rootReducer, initialState));
+    const store = compose(
+        applyMiddleware(thunk),
+        window.__REDUX_DEVTOOLS_EXTENSION__()
+    )(createStore)(rootReducer, initialState);
 
     if (process.env.NODE_ENV !== 'production') {
         if (module.hot) {

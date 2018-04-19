@@ -1,0 +1,9 @@
+.footer__filter-link {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.footer__filter-link.active {
+    font-weight: normal;
+    cursor: default;
+}

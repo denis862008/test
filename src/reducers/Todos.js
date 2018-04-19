@@ -8,6 +8,9 @@ function todos (state = initialState, action) {
             let { todos } = state;
             todos.push({ ...action.payload });
             return { ...state, todos };
+        case 'TOGGLE_TODO':
+            todos = action.payload;
+            return { ...state, todos };
         default:
             return state;
     }
