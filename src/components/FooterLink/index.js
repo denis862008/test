@@ -5,13 +5,15 @@ import './styles.css';
 class Link extends React.Component {
     handleClick() {
         const { active, filter } = this.props;
-        const { todos } = this.props.todosStore;
+        // const { todos } = this.props.todosStore;
 
         if (active) return;
 
-        if (todos.length) {
-            this.props.todosActions.setVisibilityFilter(filter);
-        }
+        // console.log(filter);
+        this.props.todosActions.setVisibilityFilter(filter);
+        // if (todos.length) {
+        //     this.props.todosActions.setVisibilityFilter(filter);
+        // }
     }
     render() {
         const { active } = this.props;
