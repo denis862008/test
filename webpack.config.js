@@ -24,12 +24,12 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: [
-                    'react-hot-loader/webpack',
+                    // 'react-hot-loader/webpack',
                     {
                         loader: 'babel-loader',
                         options: {
                             presets: ['env', 'react', 'stage-0'],
-                            plugins: ['transform-decorators-legacy']
+                            plugins: ['react-hot-loader/babel', 'transform-decorators-legacy']
                         }
                     }
                 ]

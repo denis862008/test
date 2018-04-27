@@ -8,25 +8,30 @@ import { AppContainer } from 'react-hot-loader';
 import App from './App';
 import './styles.css';
 
+
 // const store = (module.hot && module.hot.data && module.hot.data.store) ?
-//     module.hot.data.store : createStore(rootReducer);
-const store = (module.hot && module.hot.data && module.hot.data.store) ?
-    module.hot.data.store : configStore();
+//     module.hot.data.store : configStore();
+
+const store = configStore();
 const appHTMLContainer = document.getElementById('app');
 
 render(
     <Provider store={store}>
-        <AppContainer>
-            <App/>
-        </AppContainer>
+        <App/>
     </Provider>,
     appHTMLContainer
 );
 
-if (module.hot) {
-    module.hot.accept();
+{/* <Provider store={store}>
+    <AppContainer>
+        <App/>
+    </AppContainer>
+</Provider>, */}
 
-    module.hot.dispose((data) => {
-        data.store = store;
-    });
-}
+// if (module.hot) {
+//     module.hot.accept();
+//
+//     module.hot.dispose((data) => {
+//         data.store = store;
+//     });
+// }

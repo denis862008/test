@@ -8,13 +8,13 @@ const configStore = (initialState) => {
         window.__REDUX_DEVTOOLS_EXTENSION__()
     )(createStore)(rootReducer, initialState);
 
-    if (process.env.NODE_ENV !== 'production') {
-        if (module.hot) {
-            module.hot.accept('../reducers/index', () => {
-                store.replaceReducer(rootReducer);
-            });
-        }
-    }
+    // if (process.env.NODE_ENV !== 'production') {
+    //     if (module.hot) {
+    //         module.hot.accept('../reducers/index', () => {
+    //             store.replaceReducer(rootReducer);
+    //         });
+    //     }
+    // }
 
     return store;
 };
