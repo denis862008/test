@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import Todo from './Todo';
 import { bindAll } from "utils/utils";
 import './styles.css';
@@ -17,6 +18,30 @@ class TodosList extends React.Component {
     componentWillMount() {
         const todos = this.getVisibleTodos(this.props.todosFilter);
         this.setState({ todos });
+
+        // fetch(
+        //     'src/rest/groups.json',
+        //     {
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json'
+        //         }
+        //     }
+        // ).then(responce => {
+        //     console.log('resp: ', responce);
+        //     return responce.json();
+        // }).then(resp => {
+        //     console.log('resp: ', resp);
+        // });
+
+        axios({
+            method: 'GET',
+            url: 'http://localhost:3000/rest/groups.json'
+        }).then(resp => {
+            console.log(resp);
+        }).catch(e => {
+            console.error('error: ', e);
+        });
     }
     componentWillReceiveProps(nextProps) {
         const nextFilterState = nextProps.todosFilter;

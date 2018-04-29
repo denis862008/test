@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 // import rootReducer from './reducers/index';
 import configStore from './store/index';
 import { Provider } from 'react-redux';
-import { AppContainer } from 'react-hot-loader';
+// import { AppContainer } from 'react-hot-loader';
 import App from './App';
 import './styles.css';
 
